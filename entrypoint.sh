@@ -3,6 +3,10 @@
 # Exit on failure
 set -e
 
+# Get Rebar and Hex
+mix local.rebar --force
+mix local.hex --force
+
 # Generate the documentation
 mix docs
 
