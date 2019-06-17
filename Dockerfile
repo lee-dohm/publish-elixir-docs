@@ -9,4 +9,6 @@ LABEL "repository"="https://github.com/lee-dohm/publish-elixir-docs"
 LABEL "homepage"="https://github.com/lee-dohm/publish-elixir-docs"
 LABEL "maintainer"="Lee Dohm <lee-dohm@github.com>"
 
+COPY ./entrypoint.sh .
+
 ENTRYPOINT ["/entrypoint.sh"]
