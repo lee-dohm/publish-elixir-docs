@@ -24,13 +24,16 @@ cp -R doc/* $temp_dir/
 cd $temp_dir
 
 # Push the generated docs to GitHub
+remote_branch="gh-pages"
+
 git init
+git remote add origin "git@github.com:$GITHUB_REPOSITORY.git"
+git checkout --orphan $remote_branch
 git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 git config user.name "$GITHUB_ACTOR"
 git add .
 git commit -m "Docs updated at $(date -u "+%Y-%m-%dT%H:%M:%SZ")"
-git remote add origin "git@github.com:$GITHUB_REPOSITORY.git"
-git push origin gh-pages --force
+git push origin $remote_branch --force
 
 # Delete the temp directory
 cd $GITHUB_WORKSPACE
