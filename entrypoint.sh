@@ -30,4 +30,4 @@ git config user.name "$GITHUB_ACTOR"
 git add .
 git commit -m "Docs updated at $(date -u "+%Y-%m-%dT%H:%M:%SZ")"
 git remote add origin "git@github.com:$GITHUB_REPOSITORY.git"
-git push origin test-branch --force
+git push origin gh-pages --force
