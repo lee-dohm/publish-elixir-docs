@@ -7,6 +7,9 @@ set -e
 mix local.rebar --force
 mix local.hex --force
 
+# Download the mix dependencies
+mix deps.get
+
 # Generate the documentation
 mix docs
 
