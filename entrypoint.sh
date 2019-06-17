@@ -31,3 +31,7 @@ git add .
 git commit -m "Docs updated at $(date -u "+%Y-%m-%dT%H:%M:%SZ")"
 git remote add origin "git@github.com:$GITHUB_REPOSITORY.git"
 git push origin gh-pages --force
+
+# Delete the temp directory
+cd $GITHUB_WORKSPACE
+rm -rf $temp_dir
