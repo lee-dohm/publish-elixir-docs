@@ -11,6 +11,7 @@ LABEL "maintainer"="Lee Dohm <lee-dohm@github.com>"
 
 RUN set -xe \
     && apk add build-base
+    && apk add git
 
 COPY ./entrypoint.sh .
 
