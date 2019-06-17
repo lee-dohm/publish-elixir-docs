@@ -10,7 +10,7 @@ LABEL "homepage"="https://github.com/lee-dohm/publish-elixir-docs"
 LABEL "maintainer"="Lee Dohm <lee-dohm@github.com>"
 
 RUN set -xe \
-    && apk add build-base
+    && apk add build-base \
     && apk add git
 
 COPY ./entrypoint.sh .
