@@ -3,6 +3,16 @@
 # Exit on failure
 set -e
 
+update_file()
+{
+  REGEX=$1
+  REPLACEMENT=$2
+  shift; shift;
+  FILES=$@
+
+  sed -E -i .backup "s/$REGEX/$REPLACEMENT/g" $FILES
+}
+
 # Get Rebar and Hex
 echo "==> Locally-install Rebar and Hex"
 mix local.rebar --force
@@ -11,6 +21,10 @@ mix local.hex --force
 # Download the mix dependencies
 echo "==> Install mix dependencies"
 mix deps.get
+
+# Tag version number with git hash
+hash=$(echo "$GITHUB_SHA" | cut -c1-7)
+update_file "version: \"([^\"]+)\"" "version: \"\1+$hash\"" mix.exs
 
 # Generate the documentation
 echo "==> Generate docs"
