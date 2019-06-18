@@ -4,13 +4,16 @@
 set -e
 
 # Get Rebar and Hex
+echo "==> Locally-install Rebar and Hex"
 mix local.rebar --force
 mix local.hex --force
 
 # Download the mix dependencies
+echo "==> Install mix dependencies"
 mix deps.get
 
 # Generate the documentation
+echo "==> Generate docs"
 mix docs
 
 # Create a temp directory
@@ -24,6 +27,7 @@ cp -R doc/* $temp_dir/
 cd $temp_dir
 
 # Push the generated docs to GitHub
+echo "==> Push generated docs to GitHub"
 remote_branch="gh-pages"
 remote_repo="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
@@ -36,5 +40,6 @@ git commit -m "Docs updated at $(date -u "+%Y-%m-%dT%H:%M:%SZ")"
 git push --force origin master:$remote_branch
 
 # Delete the temp directory
+echo "==> Cleanup"
 cd $GITHUB_WORKSPACE
 rm -rf $temp_dir
