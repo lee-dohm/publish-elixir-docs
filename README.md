@@ -20,6 +20,7 @@ action "Only master" {
 action "Publish docs" {
   needs = "Only master"
   uses = "lee-dohm/publish-elixir-docs@master"
+  secrets = ["GITHUB_TOKEN"]
 }
 ```
 
