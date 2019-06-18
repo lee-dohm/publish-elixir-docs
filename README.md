@@ -2,6 +2,8 @@
 
 A GitHub Action that publishes the documentation for an Elixir project to the `gh-pages` branch.
 
+> **Note:** This Action has been superseded by https://github.com/lee-dohm/generate-elixir-docs and is therefore deprecated and archived.
+
 ## Use
 
 Publish the Elixir documentation for your project on every push to the `master` branch:
